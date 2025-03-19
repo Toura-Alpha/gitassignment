@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Hub - Settings</title>
+    <link rel="stylesheet" href="styles/settings.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">User Hub</div>
+            <nav>
+                <a href="home.html">Dashboard</a>
+                <a href="index.html">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="settings-section">
+        <h2>Profile Settings</h2>
+        <div class="user-information-container">
+            <h2 id="user-information"></h2>
+            <button id="update-button">Update Information</button>
+            <div id="update-form" style="display: none;">
+                <form id="update-form-data">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname"><br><br>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname"><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <label for="gender">Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male"> Male
+                    <input type="radio" id="female" name="gender" value="female"> Female<br><br>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age"><br><br>
+                    <input type="submit" value="Save Changes">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark-mode">
+        <label for="dark-mode-switch">Dark Mode</label>
+        <input type="checkbox" id="dark-mode-switch" />
+    </section>
+
+    <section class="password-recovery">
+        <h2 style="color: aqua;">Password Recovery</h2>
+        <a href="reset-password.html">Forgot Password?</a>
+    </section>
+    <br>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="your-logo.png" alt="User Hub ">
+            </div>
+            <div class="footer-address">
+                301 The Greenhouse, Custard Factory, London, E2 8DY.
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Design</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Color</a></li>
+                    <li><a href="#">Quick Order</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Google Plus</a></li>
+                </ul>
+                <div class="footer-newsletter">
+                    <p>Sign up for the latest news & offers.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button>Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2025 User Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Get user information from PHP
+        fetch('update.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('user-information').innerHTML = data;
+            });
+
+        // Toggle update form
+        document.getElementById('update-button').addEventListener('click', () => {
+            const updateForm = document.getElementById('update-form');
+            if (updateForm.style.display === 'none') {
+                updateForm.style.display = 'block';
+            } else {
+                updateForm.style.display = 'none';
+            }
+        });
+
+        // Submit update form
+        document.getElementById('update-form-data').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            fetch('update.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('user-information').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Hub - Register</title>
+    <link rel="stylesheet" href="styles/register.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-form">
+            <h2>Register</h2>
+            <form action="index.php" method="post">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" required>
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <label for="password">confrim Password</label>
+                <input type="password"  required>
+                <div class="gender-selection">
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                </div>
+                <button type="submit" name="register">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.html">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
