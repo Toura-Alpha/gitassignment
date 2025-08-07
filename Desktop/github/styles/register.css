@@ -1,0 +1,79 @@
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.register-container {
+    background-color: #1A1D23;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px; /* Centering with max-width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #66CCCC;
+    border-color: #2F4F7F;
+
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Add spacing between title and form fields */
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    background-color: white;
+    border: 1px solid #2F4F7F;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    
+}
+ input:hover{
+    background-color: aqua;
+ }
+ input:focus{
+    color: black;
+    background-color: aqua;
+ }
+button {
+    background-color: #3498DB;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    color: #aaa;
+}
+
+.gender-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.gender-selection label {
+    margin-right: 10px;
+}
